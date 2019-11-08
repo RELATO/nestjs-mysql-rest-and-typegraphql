@@ -30,3 +30,12 @@ docker run --name mysqldev -e MYSQL_ROOT_PASSWORD=ChangeIt -d -p3306:3306 mysql:
 docker exec -it mysqldev bash
 mysql -uroot -p 
 ```
+
+## Related projects
+
+- https://github.com/jmcdo29/zeldaPlay
+- https://github.com/na-ji/la-carte
+- https://github.com/david-eos/dynamic-typegraphql-filter
+- https://github.com/walkward/typed-json-api
+- https://github.com/MagnusCloudCorp/nestjs-type-graphql
+
