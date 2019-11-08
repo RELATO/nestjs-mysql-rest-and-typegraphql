@@ -81,7 +81,7 @@ export class IdeaService {
     return ideas.map(idea => this.toResponseObject(idea));
   }
 
-  public async create(data: IdeaDTO, userId: string) {
+  public async create(data: IdeaDTO, userId: number) {
     const user = await this.userRepository.findOne({ where: { id: userId } });
     const idea = await this.ideaRepository.create({ ...data, author: user });
 
@@ -152,7 +152,7 @@ export class IdeaService {
     return this.toResponseObject(idea);
   }
 
-  public async upvote(id: string, userId: string) {
+  public async upvote(id: number, userId: number) {
     let idea = await this.ideaRepository.findOne({
       where: { id },
       relations: ["author", "upvotes", "downvotes", "comments"],
@@ -164,7 +164,7 @@ export class IdeaService {
     return this.toResponseObject(idea);
   }
 
-  public async downvote(id: string, userId: string) {
+  public async downvote(id: number, userId: number) {
     let idea = await this.ideaRepository.findOne({
       where: { id },
       relations: ["author", "upvotes", "downvotes", "comments"],
@@ -176,7 +176,7 @@ export class IdeaService {
     return this.toResponseObject(idea);
   }
 
-  public async bookmark(id: string, userId: string) {
+  public async bookmark(id: number, userId: number) {
     const idea = await this.ideaRepository.findOne({ where: { id } });
     const user = await this.userRepository.findOne({
       where: { id: userId },
@@ -196,7 +196,7 @@ export class IdeaService {
     return user;
   }
 
-  public async unbookmark(id: string, userId: string) {
+  public async unbookmark(id: number, userId: number) {
     const idea = await this.ideaRepository.findOne({ where: { id } });
     const user = await this.userRepository.findOne({
       where: { id: userId },

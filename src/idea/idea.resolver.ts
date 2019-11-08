@@ -34,7 +34,7 @@ export class IdeaResolver {
   }
 
   @Query(() => IdeaEntity)
-  public idea(@Args("id") id: number) {
+  public idea(@Args({ name: "id", type: () => Int, nullable: false }) id: number) {
     return this.ideaService.read(id);
   }
 
@@ -50,7 +50,7 @@ export class IdeaResolver {
   @Mutation(() => IdeaEntity)
   @UseGuards(new AuthGuard())
   public updateIdea(
-    @Args("id") id: number,
+    @Args({ name: "id", type: () => Int, nullable: false }) id: number,
     @Args("input") input: IdeaUpdateDTO,
     @Context("user") { id: userId },
   ) {
@@ -59,31 +59,31 @@ export class IdeaResolver {
 
   @Mutation(() => IdeaEntity)
   @UseGuards(new AuthGuard())
-  public deleteIdea(@Args("id") id: number, @Context("user") { id: userId }) {
+  public deleteIdea(@Args({ name: "id", type: () => Int, nullable: false }) id: number, @Context("user") { id: userId }) {
     return this.ideaService.destroy(id, userId);
   }
 
   @Mutation(() => IdeaEntity)
   @UseGuards(new AuthGuard())
-  public upvote(@Args("id") id: string, @Context("user") { id: userId }) {
+  public upvote(@Args({ name: "id", type: () => Int, nullable: false }) id: number, @Context("user") { id: userId }) {
     return this.ideaService.upvote(id, userId);
   }
 
   @Mutation(() => IdeaEntity)
   @UseGuards(new AuthGuard())
-  public downvote(@Args("id") id: string, @Context("user") { id: userId }) {
+  public downvote(@Args({ name: "id", type: () => Int, nullable: false }) id: number, @Context("user") { id: userId }) {
     return this.ideaService.downvote(id, userId);
   }
 
   @Mutation(() => UserEntity)
   @UseGuards(new AuthGuard())
-  public bookmark(@Args("id") id: string, @Context("user") { id: userId }) {
+  public bookmark(@Args({ name: "id", type: () => Int, nullable: false }) id: number, @Context("user") { id: userId }) {
     return this.ideaService.bookmark(id, userId);
   }
 
   @Mutation(() => UserEntity)
   @UseGuards(new AuthGuard())
-  public unbookmark(@Args("id") id: string, @Context("user") { id: userId }) {
+  public unbookmark(@Args({ name: "id", type: () => Int, nullable: false }) id: number, @Context("user") { id: userId }) {
     return this.ideaService.unbookmark(id, userId);
   }
 
