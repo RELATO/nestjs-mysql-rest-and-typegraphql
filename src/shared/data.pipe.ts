@@ -4,8 +4,8 @@ import { plainToClass } from 'class-transformer';
 @Injectable()
 export class DataPipe implements PipeTransform {
     transform(value: any, metadata: ArgumentMetadata) {
-    const { metatype } = metadata;
-    const convertedValue = plainToClass(metatype, value);
-    return convertedValue;
+        const { metatype } = metadata;
+        const convertedValue = plainToClass(metatype, value);
+        return convertedValue;
     }
 }

@@ -43,10 +43,10 @@ import { CommentModule } from "./comment/comment.module";
       provide: APP_INTERCEPTOR,
       useClass: LoggingInterceptor,
     },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: DataInterceptor,
-    },
+    // {
+    //   provide: APP_INTERCEPTOR,
+    //   useClass: DataInterceptor,
+    // },
     {
       provide: APP_PIPE,
       useClass: DataPipe,
