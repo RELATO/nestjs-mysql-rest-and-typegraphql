@@ -5,6 +5,7 @@ import { GraphQLResolveInfo } from "graphql";
 import { GraphQLQueryTree } from "../../utils/GraphQLQueryTree";
 import { DynamicRepository } from "../../utils/DynamicRepository";
 
+
 export function createBaseResolver<T extends BaseEntity, X extends ClassType, Z extends ClassType>(
     suffix: string,
     pluralSuffix: string,
