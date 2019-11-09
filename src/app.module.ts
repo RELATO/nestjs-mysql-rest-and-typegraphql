@@ -11,6 +11,7 @@ import { DataInterceptor } from './shared/data.interceptor';
 import { DataPipe } from './shared/data.pipe';
 import { UserModule } from "./user/user.module";
 import { CommentModule } from "./comment/comment.module";
+import { DynamicModule } from './dynamic/dynamic.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { CommentModule } from "./comment/comment.module";
     IdeaModule,
     UserModule,
     CommentModule,
+    DynamicModule,
   ],
   providers: [
     {
